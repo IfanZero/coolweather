@@ -45,6 +45,8 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         currentDateText = (TextView) findViewById(R.id.current_date);
         switchCity = (Button)findViewById(R.id.switch_city);
         refreshWeather = (Button)findViewById(R.id.refresh_weather);
+        switchCity.setOnClickListener(this);
+        refreshWeather.setOnClickListener(this);
         String countyCode = getIntent().getStringExtra("county_code");
         if (!TextUtils.isEmpty(countyCode)){
             publishText.setText("同步中...");
@@ -54,7 +56,7 @@ public class WeatherActivity extends Activity implements View.OnClickListener {
         }else{
             showWeather();
         }
-        switchCity.setOnClickListener(this);
+
     }
 
     @Override
